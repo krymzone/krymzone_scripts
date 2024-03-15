@@ -1,0 +1,27 @@
+wantedSpeed=0.3
+lastSpeed=1
+
+function checkKeys(timer)
+
+if isKeyPressed(VK_RBUTTON) and isKeyPressed(VK_LSHIFT) then
+if lastSpeed==1 then
+speedhack_setSpeed(wantedSpeed)
+lastSpeed=wantedSpeed
+end
+else
+if lastSpeed~=1 then
+speedhack_setSpeed(1)
+lastSpeed=1
+end
+end
+end
+
+if t~=nil then
+t.destroy()
+t=nil
+end
+
+t=createTimer()
+t.Interval=50
+t.OnTimer=checkKeys
+t.Enabled=true
